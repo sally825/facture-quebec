@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { LayoutDashboard, FileText, Receipt, Users, Settings, Plus } from 'lucide-react';
+import { LayoutDashboard, FileText, Receipt, Users, Settings } from 'lucide-react';
 import Dashboard from './components/Dashboard';
 import Invoices from './components/Invoices';
 import Expenses from './components/Expenses';
@@ -81,7 +81,11 @@ export default function App() {
       {/* Main content */}
       <main className="flex-1 p-4 md:p-8 max-w-5xl">
         {tab === 'dashboard' && (
-          <Dashboard invoices={invoices} expenses={expenses} onNavigate={setTab} />
+          <Dashboard
+            invoices={invoices}
+            expenses={expenses}
+            onNavigate={(t) => setTab(t)}
+          />
         )}
         {tab === 'invoices' && (
           <Invoices
